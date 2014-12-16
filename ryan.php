@@ -34,15 +34,7 @@
 			<nav class="collapse navbar-collapse bs-navbar-collapse"
 				role="navigation">
 				<ul class="nav navbar-nav">
-					<!-- <li><a><span class="glyphicon glyphicon-cog" data-toggle="modal"
-							data-target="#settingsModal"></span></a></li> -->
 					<li><a><span class="glyphicon glyphicon-play mulang-control"></span></a></li>
-					<!-- <li><a>Getting started</a></li> -->
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<!-- <li><a><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
-					<!-- <li data-toggle="modal" data-target="#loginModal"><a><span
-							class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
 				</ul>
 			</nav>
 		</div>
@@ -60,9 +52,6 @@
 			<div class="btn-group" role="group">
 				<button type="button" id="d" class="btn btn-default btn-lg">D</button>
 			</div>
-		</div>
-		<div class="btn-group btn-group-justified" role="group"
-			aria-label="...">
 			<div class="btn-group" role="group">
 				<button type="button" id="e-flat" class="btn btn-default btn-lg">Eb</button>
 			</div>
@@ -72,9 +61,6 @@
 			<div class="btn-group" role="group">
 				<button type="button" id="f" class="btn btn-default btn-lg">F</button>
 			</div>
-		</div>
-		<div class="btn-group btn-group-justified" role="group"
-			aria-label="...">
 			<div class="btn-group" role="group">
 				<button type="button" id="g-flat" class="btn btn-default btn-lg">Gb</button>
 			</div>
@@ -84,9 +70,6 @@
 			<div class="btn-group" role="group">
 				<button type="button" id="a-flat" class="btn btn-default btn-lg">Ab</button>
 			</div>
-		</div>
-		<div class="btn-group btn-group-justified" role="group"
-			aria-label="...">
 			<div class="btn-group" role="group">
 				<button type="button" id="a" class="btn btn-default btn-lg">A</button>
 			</div>
@@ -95,22 +78,6 @@
 			</div>
 			<div class="btn-group" role="group">
 				<button type="button" id="b" class="btn btn-default btn-lg">B</button>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="btn-group btn-group-justified" role="group"
-			aria-label="...">
-			<div class="btn-group" role="group">
-				<button id="horse" class="btn btn-primary btn-lg">Horse</button>
-			</div>
-			<!-- <div class="btn-group" role="group">
-				<button type="button" class="btn btn-default btn-lg">
-					<span class="glyphicon glyphicon-play mulang-control"></span>
-				</button>
-			</div> -->
-			<div class="btn-group" role="group">
-				<button id="random" class="btn btn-primary btn-lg">Random</button>
 			</div>
 		</div>
 	</div>
