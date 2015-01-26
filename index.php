@@ -17,6 +17,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 </head>
 <body>
 	<audio id="mulang-player" autoplay></audio>
@@ -36,7 +37,8 @@
 				<ul class="nav navbar-nav">
 					<!-- <li><a><span class="glyphicon glyphicon-cog" data-toggle="modal"
 							data-target="#settingsModal"></span></a></li> -->
-					<li><a><span class="glyphicon glyphicon-play mulang-control"></span></a></li>
+					<li><a><span class="glyphicon glyphicon-play"></span></a></li>
+					<li><a><span class="glyphicon glyphicon-stop"></span></a></li>
 					<!-- <li><a>Getting started</a></li> -->
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -55,7 +57,7 @@
 				<button type="button" id="c" class="btn btn-default btn-lg">C</button>
 			</div>
 			<div class="btn-group" role="group">
-				<button type="button" id="d-flat" class="btn btn-default btn-lg">Db</button>
+				<button type="button" id="d-flat" class="btn btn-default btn-lg">D<sup>b</sup></button>
 			</div>
 			<div class="btn-group" role="group">
 				<button type="button" id="d" class="btn btn-default btn-lg">D</button>
@@ -64,7 +66,7 @@
 		<div class="btn-group btn-group-justified" role="group"
 			aria-label="...">
 			<div class="btn-group" role="group">
-				<button type="button" id="e-flat" class="btn btn-default btn-lg">Eb</button>
+				<button type="button" id="e-flat" class="btn btn-default btn-lg">E<sup>b</sup></button>
 			</div>
 			<div class="btn-group" role="group">
 				<button type="button" id="e" class="btn btn-default btn-lg">E</button>
@@ -73,25 +75,23 @@
 				<button type="button" id="f" class="btn btn-default btn-lg">F</button>
 			</div>
 		</div>
-		<div class="btn-group btn-group-justified" role="group"
-			aria-label="...">
+		<div class="btn-group btn-group-justified" role="group"	aria-label="...">
 			<div class="btn-group" role="group">
-				<button type="button" id="g-flat" class="btn btn-default btn-lg">Gb</button>
+				<button type="button" id="g-flat" class="btn btn-default btn-lg">G<sup>b</sup></button>
 			</div>
 			<div class="btn-group" role="group">
 				<button type="button" id="g" class="btn btn-default btn-lg">G</button>
 			</div>
 			<div class="btn-group" role="group">
-				<button type="button" id="a-flat" class="btn btn-default btn-lg">Ab</button>
+				<button type="button" id="a-flat" class="btn btn-default btn-lg">A<sup>b</sup></button>
 			</div>
 		</div>
-		<div class="btn-group btn-group-justified" role="group"
-			aria-label="...">
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
 			<div class="btn-group" role="group">
 				<button type="button" id="a" class="btn btn-default btn-lg">A</button>
 			</div>
 			<div class="btn-group" role="group">
-				<button type="button" id="b-flat" class="btn btn-default btn-lg">Bb</button>
+				<button type="button" id="b-flat" class="btn btn-default btn-lg">B<sup>b</sup></button>
 			</div>
 			<div class="btn-group" role="group">
 				<button type="button" id="b" class="btn btn-default btn-lg">B</button>
@@ -99,24 +99,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="btn-group btn-group-justified" role="group"
-			aria-label="...">
-			<div class="btn-group" role="group">
-				<button id="horse" class="btn btn-primary btn-lg">Horse</button>
-			</div>
-			<!-- <div class="btn-group" role="group">
-				<button type="button" class="btn btn-default btn-lg">
-					<span class="glyphicon glyphicon-play mulang-control"></span>
-				</button>
-			</div> -->
-			<div class="btn-group" role="group">
-				<button id="random" class="btn btn-primary btn-lg">Random</button>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-			aria-labelledby="loginModalLabel" aria-hidden="true">
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -130,15 +113,13 @@
 							<div class="form-group">
 								<label for="inputUsername" class="col-sm-2 control-label">Username</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="inputUsername"
-										placeholder="Username">
+									<input type="text" class="form-control" id="inputUsername" placeholder="Username">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPassword" class="col-sm-2 control-label">Password</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputPassword"
-										placeholder="Password">
+									<input type="password" class="form-control" id="inputPassword" placeholder="Password">
 								</div>
 							</div>
 							<div class="form-group">
@@ -178,20 +159,7 @@
 	</div>
 	<script src="js/main.js"></script>
 	<?php
-	$notes = array (
-			"a",
-			"a-flat",
-			"b",
-			"b-flat",
-			"c",
-			"d-flat",
-			"d",
-			"e-flat",
-			"e",
-			"f",
-			"g-flat",
-			"g" 
-	);
+	$notes = array ("a","a-flat", "b", "b-flat", "c", "d-flat",	"d", "e-flat", "e",	"f", "g-flat", "g");
 	
 	if (isset ( $_GET ['note'] )) {
 		$note = htmlspecialchars ( $_GET ['note'] );
@@ -200,8 +168,16 @@
 			if ($notes [$i] == $note) {
 				echo "<audio id='userNotePlayer' src='assets/{$notes[$i]}-3.wav' type='wav' autoplay></audio>";
 			}
-		} while ( $notes [$i] != $note && (++ $i < count ( $notes )) );
+		} while ( $notes [$i] != $note && ( ++$i < count ( $notes ) ) );
 	}
 	?>
+
+
+
+
+
+
+
+
 </body>
 </html>

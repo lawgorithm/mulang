@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>mulang</title>
+  <link rel="icon" type="image/ico" href="assets/images/tempicon.ico" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+</head>
+
+<body>
+  <audio id="mulang-player" autoplay></audio>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="" class="navbar-brand">mulang</a>
+      </div>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <!-- <li><a><span class="glyphicon glyphicon-cog" data-toggle="modal"
+							data-target="#settingsModal"></span></a></li> -->
+          <li><a><span class="glyphicon glyphicon-play"></span></a>
+          </li>
+          <li><a><span class="glyphicon glyphicon-stop"></span></a>
+          </li>
+          <!-- <li><a>Getting started</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </nav>
+  <div class="container mulang-message"></div>
+  <div class="container noteContainer">
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" id="c" class="btn btn-default btn-lg">C</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" id="d-flat" class="btn btn-default btn-lg">D<sup>b</sup>
+        </button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" id="d" class="btn btn-default btn-lg">D</button>
+      </div>
+    </div>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" id="e-flat" class="btn btn-default btn-lg">E<sup>b</sup>
+        </button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" id="e" class="btn btn-default btn-lg">E</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" id="f" class="btn btn-default btn-lg">F</button>
+      </div>
+    </div>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" id="g-flat" class="btn btn-default btn-lg">G<sup>b</sup>
+        </button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" id="g" class="btn btn-default btn-lg">G</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" id="a-flat" class="btn btn-default btn-lg">A<sup>b</sup>
+        </button>
+      </div>
+    </div>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" id="a" class="btn btn-default btn-lg">A</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" id="b-flat" class="btn btn-default btn-lg">B<sup>b</sup>
+        </button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" id="b" class="btn btn-default btn-lg">B</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Settings</h4>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/main2.js" async></script>
+</body>
+
+</html>

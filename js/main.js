@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+	$(".glyphicon").css({cursor:"pointer"});
+	$(".glyphicon-stop").fadeOut("fast");
 	$('body').append("<audio id='notePlayer' autoplay='true'></audio>")
 	$noteBtn = $(".noteContainer button");
 	$noteBtn.click(function() {
@@ -6,9 +9,33 @@ $(document).ready(function() {
 		$("#notePlayer").attr({src:notePath, type:"audio/wav"});
 	});
 
+	var m = new Mulang();
+
 	$(".glyphicon-play").click(function() {
-		var m = new Mulang();
+		$(this).hide();
+		$(".noteContainer button").click(function(){
+			if (this.id != m.solution) {
+				$(".mulang-message").html(m.incorrectAlert);
+			}
+			else if (this.id === m.solution) {
+				$(".mulang-message").html(m.correctAlert);
+				setTimeout(function(){m.play();},2000); // run donothing after 0.5 seconds
+			}
+		});
+		$(".glyphicon-stop").fadeIn("slow");
 		m.play();
+	});
+
+
+	$(".glyphicon-stop").click(function(){
+		$(this).hide();
+		m.stop();
+		$(".glyphicon-play").fadeIn("fast");
+		$noteBtn.off("click").click(function() {
+			notePath = "assets/" + this.id + "-3.wav";
+			$("#notePlayer").attr({src:notePath, type:"audio/wav"});
+		});
+
 	});
 
 	$("#horse").click(function() {
@@ -23,54 +50,23 @@ function Mulang() {
 
 	var _m = this;
 	this.notes = ["a","a-flat","b","b-flat","c","d","d-flat","e","e-flat","f","g-flat","g"];
-	this.solution;
 	this.streak = 0;
-	this.isRunning = true;
 	this.correctAlert = "<div class='alert alert-success' role='alert'><strong>Well done!</strong></div>";
-	this.incorrectAlert = "<div class='alert alert-warning' role='alert'>Guess again</div>";
+	this.incorrectAlert = "<div class='alert alert-warning' role='alert'><strong>Guess again</strong></div>";
+	this.guessAlert = "<div class='alert alert-info' role='alert'><strong>Which note is this?</strong></div>";
 	this.stopGlyph = "<span class='glyphicon glyphicon-stop'></span>";
 	this.playGlygh = "<span class='glyphicon glyphicon-play playMulang'></span>";
 	this.initialize = function() {
 
 	};
 	this.play = function() {
-		console.log("im playing");
 		this.setSolution();
-		$('.mulang-control').each(function(){
-			$(this).off("click").removeClass('glyphicon-play').addClass('glyphicon-stop');
-		});
-		$('.mulang-control').each(function(){
-			$(this).click(function(){
-				_m.stop();
-			});
-		});
-		
-		var guessAlert = "<div class='alert alert-info' role='alert'><strong>Which note is this?</strong></div>";
-		$(".mulang-player").attr('src', "random/");
-		$(".mulang-message").html(guessAlert);
-		$(".noteContainer button").click(function(){
-			console.log("Solution:" + _m.solution);
-			console.log("ID:" + this.id);
-			if (this.id != _m.solution) {
-				$(".mulang-message").html(_m.incorrectAlert);
-			}
-			else if (this.id === _m.solution) {
-				$(".mulang-message").html(_m.correctAlert);
-				setTimeout(function(){_m.play();},2000); // run donothing after 0.5 seconds
-			}
-		});
-	};
-	this.stop = function() {
-		$('.mulang-control').each(function(){
-			$(this).off("click").removeClass('glyphicon-stop').addClass('glyphicon-play');
-		});
-		$('.mulang-control').each(function(){
-			$(this).click(function(){
-				_m.play();
-			});
-		});
-		$(".mulang-message").html("");
 
+		$(".mulang-player").attr('src', "random/");
+		$(".mulang-message").html(this.guessAlert);
+	}
+	this.stop = function() {
+		$(".mulang-message").html("");
 	};
 	this.setSolution = function() {
 		this.solution = this.notes[Math.floor(Math.random()*this.notes.length)];
